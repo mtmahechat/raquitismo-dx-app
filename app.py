@@ -111,13 +111,13 @@ confirmacion_medica = st.checkbox("Confirmo que soy personal médico de salud ca
 # -----------------------------------------------------------------------------
 if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
     if not confirmacion_medica:
-        st.error("⚠️ Debe confirmar que es personal médico de salud cualificado, marcando la casilla superior, antes de continuar.")
+        st.error("⚠️ Debe confirmar que es personal médico de salud cualificado marcando la casilla superior antes de continuar.")
     else:
         st.markdown("## 📊 Informe Diagnóstico Integral")
         
         # 1. EVALUACIÓN DE HIPOFOSFATASIA (REGLA DE ALERTA DE SEGURIDAD)
         if fa_estado == "Disminuida / Muy Baja (Anormal)":
-            st.markdown('<div class="card-rare"><h4>🔴 ALERTA DE SEGURIDAD: Sospecha de Hipofosfatasia (HPP)</h4><p>La fosfatasa alcalina disminuida en presencia de alteración ósea es el sello distintivo de la <b>Hipofosfatasia</b> (mutaciones en <i>ALPL</i> que codifica TNSALP).<br><b>ADVERTENCIA DE SEGURIDAD:</b> La suplementación con calcio o vitamina D en estos pacientes está CONTRAINDICADA, ya que puede agravar la hipercalcemia/hipercalciuria y la nefrocalcinosis. Evaluar fosfato de piridoxal (PLP) y sustrato (PEA) o asfotasa alfa.</p></div>', unsafe_allow_html=True)
+            st.markdown('<div class="card-rare"><h4>🔴 ALERTA DE SEGURIDAD: Sospecha de Hipofosfatasia (HPP)</h4><p>La Fosfatasa Alcalina disminuida en presencia de alteración ósea es el sello distintivo de la <b>Hipofosfatasia</b> (mutaciones en <i>ALPL</i> que codifican TNSALP).<br><b>ADVERTENCIA DE SEGURIDAD:</b> La suplementación con Calcio o Vitamina D en estos pacientes está CONTRAINDICADA ya que puede agravar la hipercalcemia/hipercalciuria y la nefrocalcinosis. Evaluar fosfato de piridoxal (PLP) y substratos sustrato (PEA) o Asfotasa Alfa.</p></div>', unsafe_allow_html=True)
 
         # 2. EVALUACIÓN DE ENFERMEDAD RENAL CRÓNICA Y ACIDOSIS METABÓLICA
         if insuficiencia_renal:
@@ -141,18 +141,18 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                 diag_calcipenicos.append({
                     "Nombre": "Raquitismo / Osteomalacia por Inductores Enzimáticos",
                     "Tipo": "Adquirido / Farmacológico",
-                    "Genética": "No genético directivo (Inducción de CYP3A4 / CYP24A1 por fármacos como Fenitoína, Carbamazepina, Fenobarbital)",
+                    "Genética": "No genético directo (Inducción de CYP3A4 / CYP24A1 por fármacos como Fenitoína, Carbamazepina, Fenobarbital)",
                     "Detalles": "Aceleración del catabolismo de la 25(OH)D y calcitriol hacia metabolitos inactivos.",
-                    "Tratamiento Orientativo": "Ajuste de dosis elevadas de vitamina D3 o calcitriol suplementario."
+                    "Tratamiento Orientativo": "Ajuste de dosis elevadas de Vitamina D3 o Calcifediol suplementario."
                 })
             
-            if malabsorción:
+            if malabsorcion:
                 diag_calcipenicos.append({
                     "Nombre": "Raquitismo Secundario a Síndrome de Malabsorción Intestinal",
                     "Tipo": "Adquirido",
-                    "Genética": "Asociado a enfermedad celíaca, fibrosis quística, intestino corto o EII",
-                    "Detalles": "Pérdida intestinal de grasas y vitaminas liposolubles (vit. D) y/o mala absorción de calcio.
-                    "Tratamiento Orientativo": "Tratamiento de la patología de base + calcio y vitamina D hidrosoluble o parenteral."
+                    "Genética": "Asociado a Enfermedad Celíaca, Fibrosis Quística, Intestino Corto o EII",
+                    "Detalles": "Pérdida intestinal de grasas y vitaminas liposolubles (vit. D) y/o mala absorción de calcio.",
+                    "Tratamiento Orientativo": "Tratamiento de la patología de base + Calcio y Vitamina D hidrosoluble o parenteral."
                 })
 
             # Causas Nutricionales y Genéticas
@@ -168,7 +168,7 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                     "Nombre": "Raquitismo Dependiente de Vitamina D Tipo 1B (VDDR1B)",
                     "Tipo": "Genético Raro",
                     "Genética": "Autosómico Recesivo - Mutación en CYP2R1 (25-hidroxilasa hepática)",
-                    "Detalles": "Imposibilidad de convertir vitamina D nativa en 25(OH)D a nivel hepático.",
+                    "Detalles": "Imposibilidad de convertir Vitamina D nativa en 25(OH)D a nivel hepático.",
                     "Tratamiento Orientativo": "Calcifediol (25-OH-D3) o Calcitriol."
                 })
 
@@ -178,26 +178,26 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                         "Nombre": "Raquitismo Dependiente de Vitamina D Tipo 1A (VDDR1A)",
                         "Tipo": "Genético Raro",
                         "Genética": "Autosómico Recesivo - Mutación en CYP27B1 (1α-hidroxilasa renal)",
-                        "Detalles": "Niveles de 25(OH)D normales con imposibilidad de sintetizar 1,25(OH)₂D activo.",
+                        "Detalles": "Niveles de 25(OH)D normales con imposibilidad de sintetizar 1,25(OH)₂D activa.",
                         "Tratamiento Orientativo": "Calcitriol o Alfacalcidol de por vida + Calcio de soporte."
                     })
                 elif vit_125oh == "Elevada / Muy Alta":
                     nombre_vddr2 = "Raquitismo Dependiente de Vitamina D Tipo 2A o 2B (VDDR2A / VDDR2B)"
-                    if alopecia: nombre_vddr2 += " [Fuerte sospecha clínica por alopecia concomitante]"
+                    if alopecia: nombre_vddr2 += " [Fuerte sospecha clínica por Alopecia concomitante]"
                     diag_calcipenicos.append({
                         "Nombre": nombre_vddr2,
                         "Tipo": "Genético Raro",
                         "Genética": "Autosómico Recesivo - Mutaciones en VDR (Receptor Vit D) o HNRNPC",
                         "Detalles": "Resistencia de los órganos diana al calcitriol. Mantiene niveles endógenos masivos de 1,25(OH)₂D.",
-                        "Tratamiento Orientativo": "Altas dosis de calcio por vía oral o infusiones continuas de calcio intravenoso."
+                        "Tratamiento Orientativo": "Altas dosis de Calcio oral o infusiones continuas de Calcio Intravenoso."
                     })
                 else:
                     diag_calcipenicos.append({
                         "Nombre": "Raquitismo Nutricional por Deficiencia Severa de Calcio",
                         "Tipo": "Nutricional",
                         "Genética": "No hereditaria",
-                        "Detalles": "Ingesta dietética insuficiente de calcio con niveles adecuados de vitamina D.",
-                        "Tratamiento Orientativo": "Suplementación oral de calcio elemental (800–1000 mg/día)."
+                        "Detalles": "Ingesta dietética insuficiente de calcio con niveles adecuados de Vitamina D.",
+                        "Tratamiento Orientativo": "Suplementación con Calcio elemental oral (800 - 1000 mg/día)."
                     })
 
             for d in diag_calcipenicos:
@@ -214,23 +214,23 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
             
             diag_fosfopenicos = []
 
-            # 1. Subgrupo con hipercalciuria
+            # 1. Sub-grupo con Hipercalciuria
             if calciuria == "Elevada (Hipercalciuria)" or proteinuria_tubular:
-                st.error("🚨 **Alerta de Manejo**: Se detectó **HIPERCALCIURIA o DYSFUNCIÓN TUBULAR PROXIMAL**. En patologías con hipercalciuria, el uso de calcitriol sin estricta supervisión está contraindicado debido al alto riesgo de nefrocalcinosis.
+                st.error("🚨 **Alerta de Manejo**: Se detectó **HIPERCALCIURIA o DISFUNCIÓN TUBULAR PROXIMAL**. En patologías con hipercalciuria, el uso de calcitriol sin estricta supervisión está contraindicado por alto riesgo de nefrocalcinosis.")
                 
                 diag_fosfopenicos.append({
                     "Nombre": "Raquitismo Hipofosfatémico Hereditario con Hipercalciuria (HHRH)",
                     "Tipo": "Genético Raro",
-                    "Genética": "Autosómico Recesivo - Mutación en SLC34A3 ( NaPi-2c )",
+                    "Genética": "Autosómico Recesivo - Mutación en SLC34A3 (NaPi-2c)",
                     "Detalles": "Pérdida renal de fosfato con FGF23 bajo. El fosfato bajo suprime FGF23 y estimula 1,25(OH)₂D, lo que sobreabsorbe calcio intestinal produciendo hipercalciuria severa.",
-                    "Tratamiento Orientativo": "Suplementación exclusiva con fosfato oral (Evitar calcitriol)."
+                    "Tratamiento Orientativo": "Suplementación exclusiva con Fosfato Oral (Evitar Calcitriol)."
                 })
                 diag_fosfopenicos.append({
                     "Nombre": "Síndrome de Fanconi Proximal Primario o Secundario",
                     "Tipo": "Tubulopatía Compleja",
                     "Genética": "Cistinosis (CTNS), Enfermedad de Dent (CLCN5/OCRL), Síndrome de Lowe, Síndrome de Fanconi-Bickel (GLUT2), Tirosinemia Tipo 1",
                     "Detalles": "Disfunción global del túbulo proximal que genera pérdida de fosfato, glucosa, aminoácidos, bicarbonato y proteínas de bajo peso molecular.",
-                    "Tratamiento Orientativo": "Tratamiento de la patología metabólica de base (p. ej., cisteamina) + reemplazo de fosfato y citrato."
+                    "Tratamiento Orientativo": "Tratamiento de la patología metabólica de base (ej. Cisteamina) + Reemplazo de fosfato y citrato."
                 })
                 if farmacos_tenofovir:
                     diag_fosfopenicos.append({
@@ -241,7 +241,7 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                         "Tratamiento Orientativo": "Retiro o ajuste del fármaco nefrotóxico + Soporte de fosfato y electrolitos."
                     })
 
-            # 2. Subgrupo mediado por FGF23
+            # 2. Sub-grupo Mediado por FGF23
             else:
                 if hierro_iv:
                     diag_fosfopenicos.append({
@@ -249,7 +249,7 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                         "Tipo": "Adquirido / Farmacológico",
                         "Genética": "Efecto iatrogénico secundario a formulaciones específicas de hierro parenteral",
                         "Detalles": "Inhibición de la degradación de FGF23 intacto, lo que provoca fosfaturia aguda y descenso marcado de calcitriol y fosfato sérico.",
-                        "Tratamiento Orientativo": "Suspensión de hierro IV en formulación carboximaltosa + Reemplazo temporal de fosfato y de calcitriol."
+                        "Tratamiento Orientativo": "Suspensión de hierro IV formulación carboximaltosa + Reemplazo temporal de fosfato y calcitriol."
                     })
 
                 if fgf23 == "Elevado" or fgf23 == "No realizado":
@@ -261,8 +261,8 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                         "Nombre": nombre_xlh,
                         "Tipo": "Genético Dominante (~80% de las formas hereditarias)",
                         "Genética": "Dominante Ligada al X - Mutación en PHEX",
-                        "Detalles": "Exceso de FGF23 circulante debido a una falla en su inactivación. Degrada NaPi2a/2c e inhibe la 1α-hidroxilasa.",
-                        "Tratamiento Orientativo": Burosumab (anticuerpo monoclonal anti-FGF23) o Tratamiento Convencional (Fosfato oral + calcitriol)."
+                        "Detalles": "Exceso de FGF23 circulante por falla de inactivación. Degrada NaPi2a/2c e inhibe la 1α-hidroxilasa.",
+                        "Tratamiento Orientativo": "Burosumab (Anticuerpo monoclonal anti-FGF23) o Tratamiento Convencional (Fosfato oral + Calcitriol)."
                     })
                     diag_fosfopenicos.append({
                         "Nombre": "Otras Formas Genéticas FGF23-Mediadas (ADHR / ARHR1 / ARHR2 / ARHR3)",
@@ -276,7 +276,7 @@ if st.button("🔍 Evaluar Cuadro Diagnóstico Completo"):
                         "Tipo": "Adquirido Neoplásico (Frecuente en Adultos)",
                         "Genética": "Secreción por tumores mesenquimales fosfatúricos benignos",
                         "Detalles": "Producción autónoma de FGF23 por un tumor (usualmente de pequeño tamaño en partes blandas o hueso).",
-                        "Tratamiento Orientativo": "Localización tumoral (PET-CT con 68Ga-DOTATATE / resonancia magnética) y resección quirúrgica curativa."
+                        "Tratamiento Orientativo": "Localización tumoral (PET-CT 68Ga-DOTATATE / Resonancia) y resección quirúrgica curativa."
                     })
 
                 elif fgf23 in ["Normal", "Disminuido / Bajo"]:
